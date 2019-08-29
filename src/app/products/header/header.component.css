@@ -54,3 +54,15 @@ h1 {
   font-size: 40px;
   text-transform: uppercase;
 }
+
+#coffee {
+  color: #ebd6c1;
+  font-size: 23px;
+  font-weight: 300;
+}
+
+#company {
+  color: #d3a577;
+  font-size: 23px;
+  font-weight: 700;
+}
