@@ -1,0 +1,37 @@
+<app-header></app-header>
+<main class="mainBody">
+  <main class="cartBody">
+    <section class="cart">
+      <div class="cartHeader">
+        <h1>your cart</h1>
+        <button id="updateCartButton" *ngIf="!showUpdateForm" (click)="toggleUpdateForm()">Update cart</button>
+      </div>
+      <div class="cartItemBox" *ngFor="let item of cart">
+        <div class="itemInfo">
+          <p class="coffeeName">{{ item.product }}</p>
+          <p>Product Id: {{ item.id }}</p>
+          <p class="removeLink" (click)="deleteItem(item.id)">Remove item from cart</p>
+        </div>
+        <div class="itemInfo">
+          <p class="rightInfo price">${{ item.price }}</p>
+          <p class="rightInfo">Quantity: {{ item.quantity }}</p>
+          <form id="updateForm" *ngIf="showUpdateForm" #updateForm="ngForm"
+            (ngSubmit)="[updateItem(updateForm, item.id), toggleUpdateForm()]">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" [ngModel]=item.quantity>
+            <button id="updateItemButton"><i class="fa fa-check"></i></button>
+          </form>
+        </div>
+      </div>
+      <form *ngIf="showAddForm" id="addItemForm" #addItemForm="ngForm"
+        (ngSubmit)="[addItemToCart(addItemForm), toggleAddForm()]">
+        <label>Product:<input type="text" name="product" ngModel placeholder="Product"></label>
+        <label>Price:<input type="text" name="price" ngModel placeholder="Price"></label>
+        <label>Quantity:<input type="text" name="quantity" ngModel placeholder="Quantity"></label>
+        <button id="submitButton">Submit</button>
+      </form>
+      <button *ngIf="!showAddForm" id="showAddFormButton" (click)="toggleAddForm()">Add</button>
+      <button *ngIf="showAddForm" id="cancelButton" (click)="toggleAddForm()">Cancel</button>
+    </section>
+  </main>
+</main>

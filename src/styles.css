@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+  /* height: 100vh; */
+}
+
+html {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.712), rgba(0, 0, 0, .712)), url('./assets/background-zerna-texture-coffee-beans-kofe-fon-roasted-wood.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
